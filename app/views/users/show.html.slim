@@ -1,0 +1,16 @@
+= content_for :jumbotron do
+  h2= "Профиль #{@user.login}"
+  - if @user == current_user
+    p
+      = link_to 'Настройки профиля', edit_user_registration_path
+      br
+      = link_to 'Добавить запись', new_gist_path
+
+h3 Все записи
+- if @gists.any?
+  - @gists.each do |gist|
+    = render 'gists/gist', gist: gist
+  = will_paginate @gists, renderer: BootstrapPagination::Rails
+
+- unless @gists.any?
+  p Пока нет никаких записей

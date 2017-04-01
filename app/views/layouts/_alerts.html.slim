@@ -1,0 +1,21 @@
+- if flash[:success].present?
+  .alert.alert-success.alert-dismissible role="alert"
+    button.close type="button" data-dismiss="alert" aria-label="Close"
+      span aria-hidden="true" ×
+    = flash[:success]
+
+- if notice.present?
+  .alert.alert-warning.alert-dismissible role="alert"
+    button.close type="button" data-dismiss="alert" aria-label="Close"
+      span aria-hidden="true" ×
+    strong Внимание!
+    br
+    = notice
+
+- if alert.present?
+  .alert.alert-danger.alert-dismissible role="alert"
+    button.close type="button" data-dismiss="alert" aria-label="Close"
+      span aria-hidden="true" ×
+    strong Внимание!
+    br
+    = alert

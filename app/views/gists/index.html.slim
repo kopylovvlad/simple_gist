@@ -1,0 +1,14 @@
+= content_for :jumbotron do
+  h2 Записи
+  p Для поиска по записям, воспользуйтесь поисковиком
+
+
+- if @gists.any?
+  - @gists.each do |gist|
+    = render 'gists/gist', gist: gist
+  = will_paginate @gists, renderer: BootstrapPagination::Rails
+
+- unless @gists.any?
+  p Пока нет никаких записей
+  - if current_user.present?
+    = link_to 'Добавить запись', new_gist_path

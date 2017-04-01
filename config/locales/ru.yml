@@ -1,0 +1,6 @@
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+ru:
+  unhappy: 'Разочарованы?'
+  gist_success_destroy: 'Запись удачно удалена'

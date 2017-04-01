@@ -1,0 +1,34 @@
+= content_for :jumbotron do
+  h2 Редактировать профайл
+
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+
+  .form-group
+    label Email
+    = f.input :email, required: true, autofocus: true, label: false, input_html: { class: 'form-control' }
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      p= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email)
+  .form-group
+    label Логин
+    = f.input :login, required: true, autofocus: true, label: false, input_html: { class: 'form-control' }
+  .form-group
+    label Новый пароль
+    = f.input :password, autocomplete: "off", hint: t(".leave_blank_if_you_don_t_want_to_change_it"), required: false, label: false, input_html: { class: 'form-control' }
+  .form-group
+    label Подтверждение пароля
+    = f.input :password_confirmation, required: false, label: false, input_html: { class: 'form-control' }
+  .form-group
+    label Текущий пароль
+    = f.input :current_password, hint: t(".we_need_your_current_password_to_confirm_your_changes"), required: true, label: false, input_html: { class: 'form-control' }
+
+  .form-actions
+    = f.button :submit, t(".update")
+
+h3= t(".cancel_my_account")
+
+p
+  = t("unhappy")
+  br
+  = link_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: t(".are_you_sure") }, method: :delete
+
+= link_to t("devise.shared.links.back"), :back

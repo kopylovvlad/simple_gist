@@ -1,0 +1,19 @@
+= simple_form_for(@gist) do |f|
+  .form-group
+    label Название
+    = f.input :title, required: false, autofocus: true, label: false, input_html: { class: 'form-control' }
+  .form-group
+    label Режим
+    = f.input_field :lang_mode, as: :select, collection: Gist.lang_collection, required: false, label: false, include_blank: false, class: 'form-control'
+  .form-group
+    label Код
+    = f.input :body, label: false,  input_html: { class: 'form-control' }
+  = f.submit 'Сохранить', class: 'btn btn-default'
+
+javascript:
+  $(document).ready(function(){
+    CodeRedactor.codemirror_redactor(
+      document.getElementById('gist_body'),
+      "#{@gist.lang_mode}"
+    );
+  });

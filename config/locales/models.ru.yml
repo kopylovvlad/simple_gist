@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    models:
+      user: Пользователь
+      gist: Запись
+    attributes:
+      user:
+        login: Логин
+      gist:
+        title: Название
+        body: Код
+        lang_mode: Режим
+        user_id: Идентификатор пользователя
+        user: Пользователь
