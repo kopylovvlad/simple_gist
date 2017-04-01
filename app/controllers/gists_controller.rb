@@ -4,8 +4,8 @@ class GistsController < ApplicationController
   def index
     page = params[:page] || 1
     @gists = Gist.preload(:user).all
-    if params[:query].present?
-      @gists = @gists.search(params[:query])
+    if params[:search].present?
+      @gists = @gists.search(params[:search])
     end
     @gists = @gists.paginate(page: page)
   end

@@ -14,10 +14,7 @@
 class Gist < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   scope :search, ->(search_word) do
-    where(
-      'title LIKE :search_word',
-      search_word: search_word
-    )
+    where('title LIKE ?', "%#{search_word}%")
   end
 
   belongs_to :user
