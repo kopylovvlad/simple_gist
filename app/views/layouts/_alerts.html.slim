@@ -4,6 +4,14 @@
       span aria-hidden="true" ×
     = flash[:success]
 
+- if flash[:error].present?
+  .alert.alert-danger.alert-dismissible role="alert"
+    button.close type="button" data-dismiss="alert" aria-label="Close"
+      span aria-hidden="true" ×
+    strong Ошибка
+    br
+    = flash[:error]
+
 - if notice.present?
   .alert.alert-warning.alert-dismissible role="alert"
     button.close type="button" data-dismiss="alert" aria-label="Close"

@@ -3,8 +3,8 @@
 # Table name: gists
 #
 #  id         :integer          not null, primary key
-#  title      :string
-#  body       :text
+#  title      :string           not null
+#  body       :text             not null
 #  lang_mode  :string
 #  user_id    :integer          not null
 #  created_at :datetime         not null
@@ -23,4 +23,6 @@ RSpec.describe Gist, type: :model do
   end
   it { should validate_presence_of(:user_id) }
   it { should validate_presence_of(:user) }
+  it { should belong_to(:user) }
+  it { should have_many(:comments).dependent(:destroy) }
 end

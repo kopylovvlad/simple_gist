@@ -1,30 +1,13 @@
 = content_for :jumbotron do
   h2 Просмотр записи
+  = render 'gists/show_links'
 
-.col-sm-12
-  .panel.panel-default
-    .panel-heading
-      h3.panel-title= @gist.title
-      /#TODO link to user
-    .panel-body
-      /#TODO codemirris +lanf_mode + readOnly
-      textarea#gist_body_show
-        = @gist.body
-  
+= render 'gists/gist_show'
 
-= link_to 'Ко всем записям', gists_path
-br
-= link_to 'Ко всем записям пользователя', user_path(user_login: @gist.user.login)
-- if current_user.present? and @gist.user_id == current_user.id
-  br
-  = link_to 'Редактировать запись', edit_gist_path(@gist)
-  br
-  = link_to 'Удалить запись', gist_path(@gist), method: :delete, data: { confirm: 'Вы уверены что хотите удалить?' }
+- if @comments.any?
+  .gist_comments_box
+    - @comments.each do |comment|
+      = render 'comments/comment', comment: comment
 
-javascript:
-  $(document).ready(function(){
-    CodeReader.codemirror_reader(
-      document.getElementById('gist_body_show'),
-      "#{@gist.lang_mode}"
-    )
-  });
+- if current_user.present?
+  = render 'comments/form', gist: @gist

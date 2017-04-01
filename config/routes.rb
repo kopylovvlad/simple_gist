@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-  resources :gists
+  resources :gists do
+    resources :comments, only: [:create, :destroy]
+  end
   get 'users/login/:user_login', to: 'users#show', as: :user
   root to: 'home#main'
 

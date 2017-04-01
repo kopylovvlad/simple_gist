@@ -25,6 +25,10 @@ div.gist_body,
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
+
+.new_comment_panel{
+  padding: 20px 40px;
+}
 .clear{
   clear: both;
 }

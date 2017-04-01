@@ -85,7 +85,8 @@ RSpec.describe 'Gists', type: :request do
             gist: {
               title: 'foo.cpp',
               body: 'include stdio',
-              lang_mode: 'cpp'
+              lang_mode: 'erlang',
+              user_id: user.id
             }
           }
         )
@@ -98,7 +99,7 @@ RSpec.describe 'Gists', type: :request do
         expect(updated_gist).to_not eq(nil)
         expect(updated_gist.title).to eq('foo.cpp')
         expect(updated_gist.body).to eq('include stdio')
-        expect(updated_gist.lang_mode).to eq('cpp')
+        expect(updated_gist.lang_mode).to eq('erlang')
       end
 
       it 'can not update another gist' do

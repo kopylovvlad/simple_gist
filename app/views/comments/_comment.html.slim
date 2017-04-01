@@ -1,0 +1,16 @@
+.col-sm-12
+  .panel.panel-white.post.panel-shadow
+    .post-heading
+      .pull-left.image
+        = image_tag('user_avatar.jpg', class: 'img-circle avatar')
+      .pull-left.meta
+        .title.h5
+          = link_to user_path(user_login: comment.user.login) do
+            strong= comment.user.login
+          |  опубликовал комментарий
+        h6.text-muted.time= comment.created_at.strftime('%Y-%m-%d %H:%M')
+    .post-description
+      p= comment.body
+      .action
+        - if comment.user == current_user
+          = link_to 'удалить комментарий', gist_comment_path(comment.gist, comment), method: :delete, data: { confirm: 'Вы уверены что хотите удалить?' }

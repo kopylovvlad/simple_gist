@@ -25,4 +25,5 @@ RSpec.describe User, type: :model do
   it { should validate_length_of(:login).is_at_least(3) }
   it { should validate_uniqueness_of(:login) }
   it { should have_many(:gists).dependent(:destroy) }
+  it { should have_many(:comments).dependent(:destroy) }
 end

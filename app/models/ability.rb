@@ -33,7 +33,10 @@ class Ability
     if user.not_guest?
       can :new, :all
       can [:manage], Gist do |gist|
-        gist.user_id == user.id || gist.user_id == nil
+        gist.user_id == user.id || gist.user_id.nil?
+      end
+      can [:manage], Comment do |comment|
+        comment.user_id == user.id || comment.user_id.nil?
       end
     end
   end

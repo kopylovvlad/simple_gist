@@ -25,6 +25,8 @@ class User < ApplicationRecord # :nodoc:
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :gists, dependent: :destroy
+  has_many :comments, dependent: :destroy
+
   validates :login, presence: true, length: { minimum: 3 }, uniqueness: true
 
   def guest?

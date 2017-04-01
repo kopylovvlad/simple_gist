@@ -12,7 +12,9 @@ class GistsController < ApplicationController
 
   def new; end
 
-  def show; end
+  def show
+    @comments = @gist.comments.preload(:user, :gist)
+  end
 
   def edit; end
 

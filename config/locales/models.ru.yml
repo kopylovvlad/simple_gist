@@ -3,6 +3,7 @@ en:
     models:
       user: Пользователь
       gist: Запись
+      comment: Комментарий
     attributes:
       user:
         login: Логин
@@ -12,3 +13,9 @@ en:
         lang_mode: Режим
         user_id: Идентификатор пользователя
         user: Пользователь
+      comment:
+        body: Тело
+        user_id: Идентификатор пользователя
+        user: Пользователь
+        gist_id: Идентификатор комментарий
+        gist: Комментарий

@@ -4,3 +4,6 @@
 ru:
   unhappy: 'Разочарованы?'
   gist_success_destroy: 'Запись удачно удалена'
+  comment_success_create: 'Комментарий был успешно создан'
+  comment_error_create: 'Не получилось создать комментарий'
+  comment_success_destroy: 'Комментарий был успешно удален'
