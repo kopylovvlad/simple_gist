@@ -1,26 +1,10 @@
-=======
-# README
+# Simple Gist
+It is simple prototype of https://gist.github.com/
+You can see it by the link:
+https://arcane-plains-42874.herokuapp.com
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+Some users for authorization:
+  - login -- password
+  - ivanivan@mail.ru -- ivanivan@mail.ru
+  - petrpetr@mail.ru -- petrpetr@mail.ru
+  - vovavova@mail.ru -- vovavova@mail.ru
