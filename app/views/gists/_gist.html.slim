@@ -9,3 +9,6 @@
     .panel-body
       textarea.gist_short_body data-mode="#{gist.lang_mode}"
         = gist.short_body
+      = "Кол-во комментариев: #{gist.comments_count}"
+      br
+      = link_to 'подробнее', gist_path(gist)

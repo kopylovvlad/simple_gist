@@ -50,4 +50,13 @@ class Gist < ApplicationRecord
       body
     end
   end
+
+  def comments_count
+    @comments_count ||= comments.count
+  end
+
+  def load_comments_count
+    comments_count
+    self
+  end
 end

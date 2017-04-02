@@ -3,17 +3,18 @@ class GistsController < ApplicationController
 
   def index
     page = params[:page] || 1
-    @gists = Gist.preload(:user).all
+    gists = Gist.preload(:user).all
     if params[:search].present?
-      @gists = @gists.search(params[:search])
+      gists = gists.search(params[:search])
     end
-    @gists = @gists.paginate(page: page)
+    @gists_paginate = gists.paginate(page: page)
+    @gists = @gists_paginate.map(&:load_comments_count)
   end
 
   def new; end
 
   def show
-    @comments = @gist.comments.preload(:user, :gist)
+    @comments = Gist.preload(:user).find_by(id: params[:id]).comments.preload(:user, :gist)
   end
 
   def edit; end

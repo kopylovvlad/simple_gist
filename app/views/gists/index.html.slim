@@ -11,7 +11,7 @@
 - if @gists.present?
   - @gists.each do |gist|
     = render 'gists/gist', gist: gist
-  = will_paginate @gists, renderer: BootstrapPagination::Rails
+  = will_paginate @gists_paginate, renderer: BootstrapPagination::Rails
 
 - unless @gists.present?
   p Пока нет никаких записей

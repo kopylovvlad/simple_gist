@@ -4,7 +4,7 @@
 
 = render 'gists/gist_show'
 
-- if @comments.any?
+- if @comments.present?
   .gist_comments_box
     - @comments.each do |comment|
       = render 'comments/comment', comment: comment
