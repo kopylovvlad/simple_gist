@@ -28,6 +28,7 @@ class User < ApplicationRecord # :nodoc:
   has_many :comments, dependent: :destroy
 
   validates :login, presence: true, length: { minimum: 3 }, uniqueness: true
+  validate :valid_login
 
   def guest?
     id.nil?
@@ -35,5 +36,12 @@ class User < ApplicationRecord # :nodoc:
 
   def not_guest?
     !guest?
+  end
+
+  def valid_login
+    if login.present? and login.scan(/^[\w]*$/).empty?
+      errors.add(:login, I18n.t('bad_login'))
+      false
+    end
   end
 end
