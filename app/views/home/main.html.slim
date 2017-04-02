@@ -1,0 +1,11 @@
+= content_for :jumbotron do
+  h2 SimpleGist
+  p 
+    | Добро пожаловать на сайт simple_gist
+    br
+    | Делитесь кодом друг с другом =)
+
+h3 Последние записи
+- if @gists.present?
+  - @gists.each do |gist|
+    = render 'gists/gist', gist: gist

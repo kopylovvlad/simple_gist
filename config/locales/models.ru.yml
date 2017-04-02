@@ -1,0 +1,21 @@
+en:
+  activerecord:
+    models:
+      user: Пользователь
+      gist: Запись
+      comment: Комментарий
+    attributes:
+      user:
+        login: Логин
+      gist:
+        title: Название
+        body: Код
+        lang_mode: Режим
+        user_id: Идентификатор пользователя
+        user: Пользователь
+      comment:
+        body: Тело
+        user_id: Идентификатор пользователя
+        user: Пользователь
+        gist_id: Идентификатор комментарий
+        gist: Комментарий

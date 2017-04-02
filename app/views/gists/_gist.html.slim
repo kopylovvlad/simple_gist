@@ -1,0 +1,14 @@
+.col-sm-12
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title.pull-left
+        = link_to gist.title, gist_path(gist)
+      .pull-right
+        = link_to gist.user.login, user_path(user_login: gist.user.login)
+      .clear
+    .panel-body
+      textarea.gist_short_body data-mode="#{gist.lang_mode}"
+        = gist.short_body
+      = "Кол-во комментариев: #{gist.comments_count}"
+      br
+      = link_to 'подробнее', gist_path(gist)

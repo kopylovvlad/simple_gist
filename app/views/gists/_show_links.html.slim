@@ -1,0 +1,8 @@
+= link_to 'Ко всем записям', gists_path
+br
+= link_to 'Ко всем записям пользователя', user_path(user_login: @gist.user.login)
+- if current_user.present? and @gist.user_id == current_user.id
+  br
+  = link_to 'Редактировать запись', edit_gist_path(@gist)
+  br
+  = link_to 'Удалить запись', gist_path(@gist), method: :delete, data: { confirm: 'Вы уверены что хотите удалить?' }

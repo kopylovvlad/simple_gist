@@ -1,0 +1,34 @@
+.white_link{
+  color: #fff;
+  &:hover{
+    color: #fff;
+  }
+}
+
+.field_with_errors{
+  input{
+    border-color: #d9534f;
+  }
+  span.error{
+    color: #d9534f;
+    margin-left: 5px;
+  }
+}
+
+div.gist_body,
+.panel-body > .CodeMirror{
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.new_comment_panel{
+  padding: 20px 40px;
+}
+.clear{
+  clear: both;
+}

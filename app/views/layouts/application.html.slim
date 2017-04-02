@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title SimpleGist
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+
+  body
+    = render 'layouts/header'
+    .container.theme-showcase role="main"
+      = render 'layouts/jumbotron'
+      .row
+        = render 'layouts/alerts'
+        = yield
+    = render 'layouts/footer'

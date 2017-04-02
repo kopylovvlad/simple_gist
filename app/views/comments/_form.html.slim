@@ -1,0 +1,8 @@
+.col-sm-12
+  .panel.panel-white.new_comment_panel
+      = simple_form_for([gist, Comment.new]) do |f|
+        = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+        .form-group
+          label Добавить комментарий
+          = f.input :body, required: false, autofocus: false, label: false, input_html: { class: 'form-control' }
+        = f.submit 'Сохранить', class: 'btn btn-default'

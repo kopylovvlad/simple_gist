@@ -1,0 +1,22 @@
+nav.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to 'Simple Gist', root_path, class: 'navbar-brand'
+    #navbar.navbar-collapse.collapse
+      = form_tag(gists_path, class: 'navbar-form navbar-right', method: :get) do
+        .form-group
+          /input.form-control placeholder="Поиск" type="text" name='search' /
+          = text_field_tag(:search, params[:search], class: 'form-control', placeholder: 'Поиск')
+        button.btn.btn-success type="submit" Найти
+        - if current_user.present?
+          = link_to current_user.login, user_path(user_login: current_user.login), class: 'white_link ml-10'
+          = link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'white_link ml-10'
+        - else
+          = link_to 'Регистрация', new_user_registration_path, class: 'white_link ml-10'
+          = link_to 'Войти', new_user_session_path, class: 'white_link ml-10'
+
